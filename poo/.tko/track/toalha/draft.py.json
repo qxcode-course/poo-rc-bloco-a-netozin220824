@@ -1,0 +1,24 @@
+{
+    "patches": [
+        {
+            "label": "2025-09-17_14-46-49",
+            "content": "@@ -290,10 +290,8 @@\n ha %C3%A9\n- q\n %7Bmin\n",
+            "lines": "11"
+        },
+        {
+            "label": "2025-09-17_14-47-22",
+            "content": "@@ -219,21 +219,8 @@\n alha\n-, %C3%A9 o tamanho\n %22)%0Ac\n@@ -287,16 +287,17 @@\n oalha %C3%A9 \n+q\n %7Bminha.c\n@@ -305,21 +305,6 @@\n lor%7D\n- e %7Bminha.size%7D\n %22)\n",
+            "lines": "11"
+        },
+        {
+            "label": "2025-09-17_14-49-59",
+            "content": "@@ -274,21 +274,19 @@\n l(color,\n- size\n+%22p%22\n )%0Aprint(\n@@ -320,20 +320,8 @@\n %7D e \n-o tamanho %C3%A9 \n %7Bmin\n",
+            "lines": "11"
+        },
+        {
+            "label": "2025-09-17_14-55-42",
+            "content": "class Towel:#classe\n    def __init__(self,color: str,size:str):#construtor \n        self.color: str = color #atributo\n        self.size: str = size\n        self.wetness:int = 0\n\n#referencias\nprint(\"qual a cor da sua toalha, \u00e9 o tamanho\")\ncolor = input()\nminha: Towel = Towel(color, size)\nprint(f\"sua toalha \u00e9 {minha.color} e o tamanho \u00e9 {minha.size}\")",
+            "lines": "11"
+        }
+    ]
+}
