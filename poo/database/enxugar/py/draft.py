@@ -8,7 +8,10 @@ class Towel:
         self.wetness += amount
         if self.wetness >= self.isMaxWetness():
             self.wetness = self.isMaxWetness()
-            print("toalha saturada, ensopada, pingando")
+            print("toalha encharcada")
+
+    def isDry(self):
+        return self.wetness == 0
 
     def wringOut(self):
         self.wetness = 0
@@ -23,27 +26,33 @@ class Towel:
         return 0 # default return
 
     def __str__(self) -> str: # toString
-        return f"Color:{self.color}, Size:{self.size}, Wet:{self.wetness}"
+        return f"Cor: {self.color}, Tamanho: {self.size}, Umidade: {self.wetness}"
 
 def main(): 
     towel: Towel = Towel("", "") # 2: criar um obj com qq valor inicial
     while True: # 3: loop infinito
 
         line: str = input() # 4: perguntar ao usuario
+        print("$" + line) # echo
         args: list[str] = line.split(" ") # 5: separar argumentos
 
         if args[0] == "end":
             break
-        elif args[0] == "new": # color size
+        elif args[0] == "criar": # color size
             color: str = args[1]
             size: str = args[2]
             towel = Towel(color, size)
-        elif args[0] == "dry":
+        elif args[0] == "seca":
+            print("sim" if towel.isDry() else "nao")
+        elif args[0] == "torcer":
+            towel.wringOut()
+        elif args[0] == "enxugar":
             amount: int = int(args[1])
             towel.dry(amount)
-        elif args[0] == "show":
+        elif args[0] == "mostrar":
             print(towel)
         else: # 7: erro
             print("fail: comando não encontrado")
 
 main() # passo 1
+  

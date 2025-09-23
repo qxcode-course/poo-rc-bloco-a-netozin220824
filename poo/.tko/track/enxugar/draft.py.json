@@ -1,0 +1,79 @@
+{
+    "patches": [
+        {
+            "label": "2025-09-23_14-09-34",
+            "content": "@@ -1,1497 +0,0 @@\n-class Towel:%0A    def __init__(self, color: str, size: str): # construtor%0A        self.color: str = color # atributos%0A        self.size: str = size%0A        self.wetness: int = 0%0A    %0A    def dry(self, amount: int) -%3E None:%0A        self.wetness += amount%0A        if self.wetness %3E= self.isMaxWetness():%0A            self.wetness = self.isMaxWetness()%0A            print(%22toalha saturada, ensopada, pingando%22)%0A%0A    def wringOut(self):%0A        self.wetness = 0%0A%0A    def isMaxWetness(self) -%3E int:%0A        if self.size == %22P%22: # early return%0A            return 10%0A        if self.size == %22M%22:%0A            return 20%0A        if self.size == %22G%22:%0A            return 30%0A        return 0 # default return%0A%0A    def __str__(self) -%3E str: # toString%0A        return f%22Color:%7Bself.color%7D, Size:%7Bself.size%7D, Wet:%7Bself.wetness%7D%22%0A%0Adef main(): %0A    towel: Towel = Towel(%22%22, %22%22) # 2: criar um obj com qq valor inicial%0A    while True: # 3: loop infinito%0A%0A        line: str = input() # 4: perguntar ao usuario%0A        args: list%5Bstr%5D = line.split(%22 %22) # 5: separar argumentos%0A%0A        if args%5B0%5D == %22end%22:%0A            break%0A        elif args%5B0%5D == %22new%22: # color size%0A            color: str = args%5B1%5D%0A            size: str = args%5B2%5D%0A            towel = Towel(color, size)%0A        elif args%5B0%5D == %22dry%22:%0A            amount: int = int(args%5B1%5D)%0A            towel.dry(amount)%0A        elif args%5B0%5D == %22show%22:%0A            print(towel)%0A        else: # 7: erro%0A            print(%22fail: comando n%C3%A3o encontrado%22)%0A%0Amain() # passo 1%0A\n",
+            "lines": "0"
+        },
+        {
+            "label": "2025-09-23_14-12-25",
+            "content": "@@ -1490,10 +1490,8 @@\n passo 1%0A\n-  \n",
+            "lines": "49"
+        },
+        {
+            "label": "2025-09-23_14-13-36",
+            "content": "@@ -1122,14 +1122,11 @@\n == %22\n-$criar\n+new\n %22: #\n@@ -1370,16 +1370,12 @@\n == %22\n-$mostrar\n+show\n %22:%0A \n",
+            "lines": "50"
+        },
+        {
+            "label": "2025-09-23_14-22-27",
+            "content": "@@ -1118,16 +1118,17 @@\n %5B0%5D == %22\n+$\n criar%22: \n@@ -1369,16 +1369,17 @@\n %5B0%5D == %22\n+$\n mostrar%22\n",
+            "lines": "50"
+        },
+        {
+            "label": "2025-09-23_14-23-21",
+            "content": "@@ -749,10 +749,11 @@\n n f%22\n- \n C\n+ol\n or:%7B\n",
+            "lines": "50"
+        },
+        {
+            "label": "2025-09-23_14-24-04",
+            "content": "@@ -768,15 +768,12 @@\n r%7D, \n-tamanho\n+Size\n :%7Bse\n@@ -786,15 +786,11 @@\n e%7D, \n-Umidade\n+Wet\n :%7Bse\n",
+            "lines": "50"
+        },
+        {
+            "label": "2025-09-23_14-25-10",
+            "content": "@@ -772,17 +772,16 @@\n tamanho:\n- \n %7Bself.si\n",
+            "lines": "50"
+        },
+        {
+            "label": "2025-09-23_14-25-23",
+            "content": "@@ -794,17 +794,16 @@\n Umidade:\n- \n %7Bself.we\n",
+            "lines": "50"
+        },
+        {
+            "label": "2025-09-23_14-25-32",
+            "content": "@@ -750,17 +750,16 @@\n  f%22 Cor:\n- \n %7Bself.co\n",
+            "lines": "50"
+        },
+        {
+            "label": "2025-09-23_14-25-40",
+            "content": "@@ -765,17 +765,17 @@\n color%7D, \n-T\n+t\n amanho: \n",
+            "lines": "50"
+        },
+        {
+            "label": "2025-09-23_14-26-31",
+            "content": "@@ -745,16 +745,17 @@\n eturn f%22\n+ \n Cor: %7Bse\n",
+            "lines": "50"
+        },
+        {
+            "label": "2025-09-23_14-26-43",
+            "content": "@@ -991,86 +991,8 @@\n rio%0A\n-        print(%22Comandos: criar cor tamanho %7C enchugar valor %7C mostrar %7C end%22)%0A\n     \n@@ -1280,16 +1280,11 @@\n == %22\n-enchugar\n+dry\n %22:%0A \n",
+            "lines": "50"
+        },
+        {
+            "label": "2025-09-23_14-29-53",
+            "content": "@@ -1006,17 +1006,69 @@\n nt(%22\n-$%22 + line\n+Comandos: criar cor tamanho %7C enchugar valor %7C mostrar %7C end%22\n )%0A  \n",
+            "lines": "51"
+        },
+        {
+            "label": "2025-09-23_14-30-37",
+            "content": "@@ -371,75 +371,38 @@\n lha \n-encharcada%22)%0A%0A    def isDry(self):%0A        return self.wetness == 0\n+saturada, ensopada, pingando%22)\n %0A%0A  \n@@ -1016,15 +1016,8 @@\n ine)\n- # echo\n %0A   \n@@ -1306,159 +1306,12 @@\n == %22\n-seca%22:%0A            print(%22sim%22 if towel.isDry() else %22nao%22)%0A        elif args%5B0%5D == %22torcer%22:%0A            towel.wringOut()%0A        elif args%5B0%5D == %22enx\n+ench\n ugar\n",
+            "lines": "51"
+        },
+        {
+            "label": "2025-09-23_14-43-28",
+            "content": "class Towel:\n    def __init__(self, color: str, size: str): # construtor\n        self.color: str = color # atributos\n        self.size: str = size\n        self.wetness: int = 0\n    \n    def dry(self, amount: int) -> None:\n        self.wetness += amount\n        if self.wetness >= self.isMaxWetness():\n            self.wetness = self.isMaxWetness()\n            print(\"toalha encharcada\")\n\n    def isDry(self):\n        return self.wetness == 0\n\n    def wringOut(self):\n        self.wetness = 0\n\n    def isMaxWetness(self) -> int:\n        if self.size == \"P\": # early return\n            return 10\n        if self.size == \"M\":\n            return 20\n        if self.size == \"G\":\n            return 30\n        return 0 # default return\n\n    def __str__(self) -> str: # toString\n        return f\"Cor: {self.color}, Tamanho: {self.size}, Umidade: {self.wetness}\"\n\ndef main(): \n    towel: Towel = Towel(\"\", \"\") # 2: criar um obj com qq valor inicial\n    while True: # 3: loop infinito\n\n        line: str = input() # 4: perguntar ao usuario\n        print(\"$\" + line) # echo\n        args: list[str] = line.split(\" \") # 5: separar argumentos\n\n        if args[0] == \"end\":\n            break\n        elif args[0] == \"criar\": # color size\n            color: str = args[1]\n            size: str = args[2]\n            towel = Towel(color, size)\n        elif args[0] == \"seca\":\n            print(\"sim\" if towel.isDry() else \"nao\")\n        elif args[0] == \"torcer\":\n            towel.wringOut()\n        elif args[0] == \"enxugar\":\n            amount: int = int(args[1])\n            towel.dry(amount)\n        elif args[0] == \"mostrar\":\n            print(towel)\n        else: # 7: erro\n            print(\"fail: comando n\u00e3o encontrado\")\n\nmain() # passo 1\n  ",
+            "lines": "58"
+        }
+    ]
+}
