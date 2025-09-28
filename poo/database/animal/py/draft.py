@@ -1,52 +1,66 @@
 class Animal:
-    def __init__(self, species: str , sound: str = ""):  # construtor
+    def __init__(self, species: str, sound: str = ""):
         self.species = species
         self.sound = sound
-        self.age = 0
+        self.age = 0  # filhote
 
-    def speak(self):
-        return f"{self.species} makes a sound."
     def __str__(self):
         return f"{self.species}:{self.age}:{self.sound}"
+
+    def ageBy(self, increment: int):
+        if self.age == 4:
+            print(f"warning: {self.species} morreu")
+            return
+        self.age += increment
+        if self.age >= 4:
+            self.age = 4
+            print(f"warning: {self.species} morreu")
+
+    def makeSound(self):
+        if self.age == 0:
+            return "---"  # filhote
+        elif self.age == 4:
+            return "RIP"  # morto
+        else:
+            return self.sound  # som característico
+
     def isage(self) -> str:
         if self.age == 0:
             return "filhote"
-        if self.age == 1:
+        elif self.age == 1:
             return "crianca"
-        if self.age == 2:
+        elif self.age == 2:
             return "adulto"
-        if self.age == 3:
+        elif self.age == 3:
             return "idoso"
-        if self.age == 4:
+        elif self.age == 4:
             return "morto"
         else:
             return "invalido"
-        
-    
-    
-def main():   
-    animal: Animal = Animal("", "")  # 2: criar um obj com qq valor inicial
-    while True:  # 3: loop infinito
 
-        line: str = input()  # 4: perguntar ao usuario
-        print("$" + line)  # echo
-        args: list[str] = line.split(" ")  # 5: separar argumentos
+def main():
+    animal = Animal("", "")
+    while True:
+        line = input()
+        print("$" + line)
+        args = line.split()
 
         if args[0] == "end":
             break
-        
-        elif args[0] == "grow":
-                animal.age += int(args[1])
-        elif args[0] == "init":  # species age sound
-            species: str = args[1]
-            sound: str = args[2]
+        elif args[0] == "init":
+            species = args[1]
+            sound = args[2]
             animal = Animal(species, sound)
-        elif args[0] == "sound":
-            print(animal.speak())
+        elif args[0] == "grow":
+            animal.ageBy(int(args[1]))
+        elif args[0] == "noise":
+            print(animal.makeSound())
         elif args[0] == "age":
             print(animal.isage())
         elif args[0] == "show":
             print(animal)
-        else:  # 7: erro
+        else:
             print("fail: comando não encontrado")
-main()
+
+if __name__ == "__main__":
+    main()
