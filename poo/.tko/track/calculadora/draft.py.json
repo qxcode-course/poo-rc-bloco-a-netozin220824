@@ -1,0 +1,64 @@
+{
+    "patches": [
+        {
+            "label": "2025-09-30_13-51-03",
+            "content": "@@ -147,17 +147,16 @@\n .battery\n- \n : int = \n@@ -474,1383 +474,4 @@\n  def\n- ret(self) -%3E None:%0A        if self.battery ==0:%0A            print(%22fail: bateria vazia%22)%0A            return%0A        self.battery -= 1%0A    def sum(self, value: float) -%3E None:%0A        self.ret()%0A        self.display += value%0A    def sub(self, value: float) -%3E None:    %0A        self.ret()%0A        self.display -= value%0A    def mul(self, value: float) -%3E None:%0A        self.ret()%0A        self.display *= value%0A    def div(self, value: float) -%3E None:%0A        self.ret()%0A        if value ==0:%0A            print(%22fail: divisao por zero%22)%0A            return%0A            self.display /= value%0Adef main() -%3E None:%0A        calc=Calculadora(5)%0A        while True:%0A                line: str = input()%0A                if line == %22end%22:%0A                    break%0A                print(%22$%22 + line)%0A                args: list%5Bstr%5D = line.split()%0A                if args%5B0%5D==%22show%22:%0A                       calc.show()%0A                elif args%5B0%5D==%22charge%22:%0A                       calc.charge(int(args%5B1%5D))%0A                elif args%5B0%5D == %22sum%22:%0A                       calc.sum(float(args%5B1%5D))%0A                elif args%5B0%5D == %22sub%22:%0A                       calc.sub(float(args%5B1%5D))%0A                elif args%5B0%5D == %22div%22:%0A                       calc.div(float(args%5B1%5D))%0A                elif args%5B0%5D == %22mul%22:%0A                       calc.mul(float(args%5B1%5D))%0Aif __name__ == %22__main__%22:%0A    main()%0A\n",
+            "lines": "15"
+        },
+        {
+            "label": "2025-09-30_14-08-57",
+            "content": "@@ -1812,16 +1812,46 @@\n gs%5B1%5D))%0A\n-%0A\n+if __name__ == %22__main__%22:%0A    \n main()%0A\n",
+            "lines": "56"
+        },
+        {
+            "label": "2025-09-30_14-09-22",
+            "content": "@@ -213,18 +213,17 @@\n %22display\n- =\n+:\n  %7Bself.d\n@@ -238,18 +238,17 @@\n  battery\n- =\n+:\n  %7Bself.b\n",
+            "lines": "56"
+        },
+        {
+            "label": "2025-09-30_14-09-51",
+            "content": "@@ -233,12 +233,8 @@\n play\n-:.2f\n %7D, b\n",
+            "lines": "56"
+        },
+        {
+            "label": "2025-09-30_14-10-17",
+            "content": "@@ -1207,43 +1207,8 @@\n d%22:%0A\n-                    print(%22$ end%22)%0A\n     \n",
+            "lines": "56"
+        },
+        {
+            "label": "2025-09-30_14-11-45",
+            "content": "@@ -1231,16 +1231,17 @@\n print(%22$\n+ \n end%22)%0A  \n",
+            "lines": "57"
+        },
+        {
+            "label": "2025-09-30_14-11-51",
+            "content": "@@ -523,17 +523,16 @@\n ttery ==\n- \n 0:%0A     \n@@ -1110,17 +1110,17 @@\n uladora(\n-0\n+5\n )%0A      \n@@ -1374,102 +1374,8 @@\n s%5B0%5D\n- == %22init%22:%0A                       calc=Calculadora(int(args%5B1%5D))%0A                elif args%5B0%5D\n ==%22s\n",
+            "lines": "57"
+        },
+        {
+            "label": "2025-09-30_14-18-53",
+            "content": "@@ -627,35 +627,29 @@\n f sum(self, \n-a: float, b\n+value\n : float) -%3E \n@@ -701,13 +701,13 @@\n  += \n-a + b\n+value\n %0A   \n@@ -717,35 +717,29 @@\n f sub(self, \n-a: float, b\n+value\n : float) -%3E \n@@ -735,32 +735,36 @@\n  float) -%3E None:\n+    \n %0A        self.re\n@@ -795,13 +795,13 @@\n  -= \n-a - b\n+value\n %0A   \n@@ -811,35 +811,29 @@\n f mul(self, \n-a: float, b\n+value\n : float) -%3E \n@@ -885,13 +885,13 @@\n  *= \n-a * b\n+value\n %0A   \n@@ -909,19 +909,13 @@\n lf, \n-a: float, b\n+value\n : fl\n@@ -962,13 +962,16 @@\n  if \n-b\n+value\n  ==\n- \n 0:%0A \n@@ -1032,32 +1032,36 @@\n  return%0A        \n+    \n self.display /= \n@@ -1060,17 +1060,21 @@\n play /= \n-b\n+value\n %0Adef mai\n@@ -1684,32 +1684,16 @@\n args%5B1%5D)\n-, float(args%5B2%5D)\n )%0A      \n@@ -1771,32 +1771,16 @@\n args%5B1%5D)\n-, float(args%5B2%5D)\n )%0A      \n@@ -1858,32 +1858,16 @@\n args%5B1%5D)\n-, float(args%5B2%5D)\n )%0A      \n@@ -1949,24 +1949,8 @@\n %5B1%5D)\n-, float(args%5B2%5D)\n )%0A%0Am\n",
+            "lines": "59"
+        },
+        {
+            "label": "2025-09-30_14-23-09",
+            "content": "@@ -704,16 +704,17 @@\n lay \n++\n = a + b%0A\n     \n@@ -709,16 +709,16 @@\n = a + b%0A\n-\n     def \n@@ -792,24 +792,25 @@\n elf.display \n+-\n = a - b%0A    \n@@ -888,24 +888,25 @@\n elf.display \n+*\n = a * b%0A    \n@@ -1074,13 +1074,10 @@\n lay \n-= a \n /\n+=\n  b%0Ad\n",
+            "lines": "59"
+        },
+        {
+            "label": "2025-09-30_14-23-56",
+            "content": "@@ -564,20 +564,13 @@\n ria \n-insuficiente\n+vazia\n %22)%0A \n",
+            "lines": "59"
+        },
+        {
+            "label": "2025-09-30_14-24-19",
+            "content": "@@ -495,12 +495,12 @@\n  -%3E \n-bool\n+None\n :%0A  \n@@ -597,14 +597,8 @@\n turn\n- False\n %0A   \n@@ -624,28 +624,8 @@\n = 1%0A\n-        return True%0A\n     \n@@ -667,39 +667,32 @@\n %3E None:%0A        \n-if not \n self.ret():%0A    \n@@ -685,36 +685,16 @@\n lf.ret()\n-:%0A            return\n %0A       \n@@ -762,39 +762,32 @@\n %3E None:%0A        \n-if not \n self.ret():%0A    \n@@ -780,36 +780,16 @@\n lf.ret()\n-:%0A            return\n %0A       \n@@ -857,39 +857,32 @@\n %3E None:%0A        \n-if not \n self.ret():%0A    \n@@ -875,36 +875,16 @@\n lf.ret()\n-:%0A            return\n %0A       \n@@ -964,15 +964,8 @@\n     \n-if not \n self\n@@ -974,28 +974,8 @@\n et()\n-:%0A            return\n %0A   \n",
+            "lines": "59"
+        },
+        {
+            "label": "2025-09-30_14-28-44",
+            "content": "class Calculadora:\n    def __init__(self, batteryMax: int):\n        self.batteryMax: int = batteryMax\n        self.display: float = 0\n        self.battery : int = 0\n\n    def __str__(self) -> str:\n        return f\"display = {self.display:.2f}, battery = {self.battery}\"\n    def show(self) -> None:\n        print(self)\n    def charge(self, amount: int) -> None:\n        self.battery += amount\n        if self.battery > self.batteryMax:\n            self.battery = self.batteryMax\n    def ret(self) -> bool:\n        if self.battery == 0:\n            print(\"fail: bateria insuficiente\")\n            return False\n        self.battery -= 1\n        return True\n    def sum(self, a: float, b: float) -> None:\n        if not self.ret():\n            return\n        self.display = a + b\n    def sub(self, a: float, b: float) -> None:\n        if not self.ret():\n            return\n        self.display = a - b\n    def mul(self, a: float, b: float) -> None:\n        if not self.ret():\n            return\n        self.display = a * b\n    def div(self, a: float, b: float) -> None:\n        if not self.ret():\n            return\n        if b == 0:\n            print(\"fail: divisao por zero\")\n            return\n        self.display = a / b\ndef main() -> None:\n        calc=Calculadora(0)\n        while True:\n                line: str = input()\n                if line == \"end\":\n                    print(\"$end\")\n                    break\n                print(\"$\" + line)\n                args: list[str] = line.split()\n                if args[0] == \"init\":\n                       calc=Calculadora(int(args[1]))\n                elif args[0]==\"show\":\n                       calc.show()\n                elif args[0]==\"charge\":\n                       calc.charge(int(args[1]))\n                elif args[0] == \"sum\":\n                       calc.sum(float(args[1]), float(args[2]))\n                elif args[0] == \"sub\":\n                       calc.sub(float(args[1]), float(args[2]))\n                elif args[0] == \"div\":\n                       calc.div(float(args[1]), float(args[2]))\n                elif args[0] == \"mul\":\n                       calc.mul(float(args[1]), float(args[2]))\n\nmain()\n",
+            "lines": "64"
+        }
+    ]
+}
